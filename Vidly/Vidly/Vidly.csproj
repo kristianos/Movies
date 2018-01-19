@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201801190954083_AddNameToMembershipType1.Designer.cs">
       <DependentUpon>201801190954083_AddNameToMembershipType1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801191016323_AddedRequiredNameToMembershipType.cs" />
+    <Compile Include="Migrations\201801191016323_AddedRequiredNameToMembershipType.Designer.cs">
+      <DependentUpon>201801191016323_AddedRequiredNameToMembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -336,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801190954083_AddNameToMembershipType1.resx">
       <DependentUpon>201801190954083_AddNameToMembershipType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191016323_AddedRequiredNameToMembershipType.resx">
+      <DependentUpon>201801191016323_AddedRequiredNameToMembershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
