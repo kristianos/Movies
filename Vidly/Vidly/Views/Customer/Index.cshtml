@@ -2,30 +2,34 @@
 @model IEnumerable<Vidly.Models.Customer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Customers";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 @if (!Model.Any())
 {
-    <text>There are no customers</text>
+    <p>There are no customers</p>
 }
 else
 {
 <table class="table table-bordered table-hover">
-    <tr>
-        <th>Movie</th>
-    </tr>
-    @foreach (var item in Model)
-    {
+    <thead>
         <tr>
-            <td>
-                @Html.ActionLink(item.Name, "Details", new { id = item.Id})
-            </td>
+            <th>Customer</th>
+            <th>Membership</th>
         </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.Name, "Details", "Customer", new { id = item.Id}, null)</td>
+                <td>@item.MermbershipType.Name</td>
+            </tr>
 
-    }
+        }
+    </tbody>
 </table>
 
 }
