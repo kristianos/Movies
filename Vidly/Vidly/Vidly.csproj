@@ -229,15 +229,30 @@
     <Compile Include="Migrations\201801191016323_AddedRequiredNameToMembershipType.Designer.cs">
       <DependentUpon>201801191016323_AddedRequiredNameToMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801191046436_AddedGenreModel.cs" />
+    <Compile Include="Migrations\201801191046436_AddedGenreModel.Designer.cs">
+      <DependentUpon>201801191046436_AddedGenreModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191048305_PopulateGenre.cs" />
+    <Compile Include="Migrations\201801191048305_PopulateGenre.Designer.cs">
+      <DependentUpon>201801191048305_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191102591_AddNumberInStockToMovies.cs" />
+    <Compile Include="Migrations\201801191102591_AddNumberInStockToMovies.Designer.cs">
+      <DependentUpon>201801191102591_AddNumberInStockToMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -301,10 +316,11 @@
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\Details.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\CustomerForm.cshtml" />
+    <Content Include="Views\Movie\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -343,6 +359,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801191016323_AddedRequiredNameToMembershipType.resx">
       <DependentUpon>201801191016323_AddedRequiredNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191046436_AddedGenreModel.resx">
+      <DependentUpon>201801191046436_AddedGenreModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191048305_PopulateGenre.resx">
+      <DependentUpon>201801191048305_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191102591_AddNumberInStockToMovies.resx">
+      <DependentUpon>201801191102591_AddNumberInStockToMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

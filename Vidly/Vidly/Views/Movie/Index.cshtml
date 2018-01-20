@@ -1,32 +1,40 @@
 ﻿@model IEnumerable<Vidly.Models.Movie>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
 }
 
-<h2>Index</h2>
+<div>
+    <h2>@ViewBag.Title</h2>
+</div>
 
-@if (!Model.Any())
-{
-    <text>There are no movies </text>
-}
-else
-{
-    <table class="table table-bordered table-hover">
-        <tr>
-            <th>
-                Movie
-            </th>
-        </tr>
+<div>
+    @Html.ActionLink("Create", "New", "Movie", null, new {@class = "btn btn-primary"})
+</div>
 
-        @foreach (var item in Model) {
+<div class="top-buffer">
+    @if (!Model.Any())
+    {
+        <text>There are no movies </text>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
             <tr>
-                <td>
-                    @Html.ActionLink(item.Name, "Details", "Movie", new { id = item.Id}, null)
-                </td>
+                <th>Movie</th>
+                <th>Genre</th>
             </tr>
-        }
-
-    </table>
-
-}
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.Name, "Edit", "Movie", new {id = item.Id}, null)</td>
+                    <td>@item.Genre.Name</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>
