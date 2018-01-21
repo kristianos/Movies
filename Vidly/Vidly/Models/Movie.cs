@@ -25,10 +25,11 @@ namespace Vidly.Models
         public DateTime DateAdded { get; set; }
 
         [Required]
-        [Display(Name = "Stock")]
+        [Range(1,20, ErrorMessage = "Stock number must be between 1 and 20")]
+        [Display(Name = "Number in Stock")]
         public int NumberInStock { get; set; }
 
-        [Required]      
+             
         public Genre Genre { get; set; }
 
         [Display(Name = "Genre")]

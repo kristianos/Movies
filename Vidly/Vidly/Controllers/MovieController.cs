@@ -15,6 +15,7 @@ namespace Vidly.Controllers
     public class MovieController : Controller
     {
         private ApplicationDbContext _context;
+
         public MovieController()
         {
             _context = new ApplicationDbContext();
@@ -35,8 +36,19 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel()
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+
+            }
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
@@ -69,6 +81,7 @@ namespace Vidly.Controllers
         {
             var viewModel = new MovieFormViewModel()
             {
+                Movie = new Movie() { ReleaseDate = DateTime.Parse("1/1/2001"), NumberInStock = 0},
                 Genres = _context.Genres.ToList()
             };
             return View("MovieForm", viewModel);

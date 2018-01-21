@@ -4,7 +4,7 @@
     ViewBag.Title = "New Customer";
 }
 
-@if (Model.Customer != null)
+@if (Model.Customer.Id != 0)
 {
     <h2>Edit Customer</h2>
 }
@@ -16,17 +16,21 @@ else
 
 @using (Html.BeginForm("Save", "Customer"))
 {
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(model => model.Customer.Name)
         @Html.TextBoxFor(model => model.Customer.Name, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Customer.BirthDate)
-        @Html.TextBoxFor(model => model.Customer.BirthDate, "{0:d MMM yyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Customer.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Customer.MembershipTypeId)
         @Html.DropDownListFor(model => model.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Customer.MembershipTypeId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Customer.BirthDate)
+        @Html.TextBoxFor(model => model.Customer.BirthDate, "{0:d MMM yyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Customer.BirthDate)
     </div>
     <div class="checkbox">
         <label>
@@ -34,6 +38,14 @@ else
         </label>
     </div>
     @Html.HiddenFor(model => model.Customer.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+    <script src="@Url.Content("~/Scripts/minagerequired.js")" type="text/javascript"></script>
 }
